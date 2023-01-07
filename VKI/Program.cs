@@ -40,27 +40,35 @@ namespace VKI
                     Console.WriteLine($"Hastanın; boyu: {boy}, kilosu: {kilo}, VKI indeksi: {VKI}, Teşhis: OBEZ");
                 }
 
-                Console.Write("Yeni bir hesaplama yapmak istiyor musunuz?(E/H): ");
-                string yanit = Console.ReadLine();
+                Boolean kontrol = false;
 
-                if (yanit == "E" || yanit == "e")
+                do
                 {
-                    devam = true;
-                }
+                    Console.Write("Yeni bir hesaplama yapmak istiyor musunuz?(E/H): ");
+                    string yanit = Console.ReadLine();
+                    kontrol= false;
 
-                else if (yanit == "H" || yanit == "h")
-                {
-                    devam = false;
-                    Console.WriteLine("Program isteğiniz üzere kapatılacaktır");
-                    System.Threading.Thread.Sleep(2000);
-                }
+                    if (yanit == "E" || yanit == "e")
+                    {
+                        devam = true;
+                    }
 
-                else
-                {
-                    Console.WriteLine("yanlış bir değer girdiniz için koruma amaçlı program kapatılacaktır!!!");
-                    System.Threading.Thread.Sleep(2000);
-                }
+                    else if (yanit == "H" || yanit == "h")
+                    {
+                        devam = false;
+                        Console.WriteLine("Program isteğiniz üzere kapatılacaktır");
+                        System.Threading.Thread.Sleep(2000);
+                    }
 
+                    else
+                    {
+                        Console.WriteLine("yanlış bir değer girdiniz için koruma amaçlı program kapatılacaktır!!!");
+                        System.Threading.Thread.Sleep(2000);
+                        kontrol= true;
+                    }
+
+                } while (kontrol);
+                
             } while (devam);
 
          }
